@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Doctors & Physiotherapists Near Me</title>
+        <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        #search { width: 100%; padding: 10px; margin-bottom: 20px; }
+        .card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+    </style>
+    </head>
+    <body>
+        <h1>Find Doctors & Physiotherapists Near You</h1>
+        <input type="text" id="search" placeholder="Enter location...">
+        <div id="results"></div>
+        
+        <script>
+        document.getElementById('search').addEventListener('input', function() {
+            let query = this.value;
+            if (query.length > 2) {
+                fetch(`https://api.example.com/search?query=${query}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('results').innerHTML = data.map(item => `
+                            <div class="card">
+                                <h3>${item.name}</h3>
+                                <p>${item.specialty}</p>
+                                <p>${item.address}</p>
+                            </div>`).join('');
+                    });
+            }
+        });
+    </script>
+    </body>
+</html>
