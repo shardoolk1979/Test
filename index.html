@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Doctors & Physiotherapists Near Me</title>
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Providers</title>
+    <style>
         body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
-        #search { width: 100%; padding: 10px; margin-bottom: 20px; }
-        .card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
     </style>
-    </head>
-    <body>
-        <h1>Find Doctors & Physiotherapists Near You</h1>
-        <input type="text" id="search" placeholder="Enter location...">
-        <div id="results"></div>
-        
-        <script>
-        document.getElementById('search').addEventListener('input', function() {
-            let query = this.value;
-            if (query.length > 2) {
-                fetch(`https://api.example.com/search?query=${query}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('results').innerHTML = data.map(item => `
-                            <div class="card">
-                                <h3>${item.name}</h3>
-                                <p>${item.specialty}</p>
-                                <p>${item.address}</p>
-                            </div>`).join('');
-                    });
-            }
-        });
-    </script>
-    </body>
+</head>
+<body>
+    <h1>Physiotherapists</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Cost</th>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>123 Main St, City</td>
+            <td>$50</td>
+        </tr>
+        <tr>
+            <td>Jane Smith</td>
+            <td>456 Elm St, City</td>
+            <td>$60</td>
+        </tr>
+    </table>
+
+    <h1>Doctors for Parents without Insurance</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <td>Dr. Alice Brown</td>
+            <td>789 Oak St, City</td>
+        </tr>
+        <tr>
+            <td>Dr. Robert White</td>
+            <td>101 Pine St, City</td>
+        </tr>
+    </table>
+</body>
 </html>
